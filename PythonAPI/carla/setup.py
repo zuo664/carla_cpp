@@ -123,7 +123,9 @@ def get_libcarla_extensions():
             # extra_link_args += ['/usr/lib/gcc/x86_64-linux-gnu/7/libstdc++.a']
             extra_link_args += ['-lstdc++']
         else:
-            raise NotImplementedError(linux_distro + " not in supported posix platforms: " + str(supported_dists))
+            raise NotImplementedError(linux_distro + " not in supported posix platforms: " + str(supported_dists))# 抛出一个NotImplementedError异常，异常信息由当前的Linux发行版名称（linux_distro变量的值）
+# 与提示信息拼接而成，提示信息表明当前这个Linux发行版不在支持的POSIX平台列表（supported_dists变量转成字符串后的内容）之中，
+# 通常用于表示当前代码所在环境对应的Linux发行版不被程序所支持，需要进行相应适配等情况。
     elif os.name == "nt":
         pwd = os.path.dirname(os.path.realpath(__file__))
         pylib = 'libboost_python%d%d' % (
